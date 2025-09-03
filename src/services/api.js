@@ -1,16 +1,30 @@
-export async function fetchData() {
+export async function fetchDataRandom() {
     try {
-        await new Promise(resolve => setTimeout(resolve, 2000));
 
         let response = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
         let data = await response.json()
 
-        if(!response.ok) {
+        if (!response.ok) {
             throw new Error("Response status: false")
         }
 
         return data
     } catch (error) {
         console.error(error)
+    }
+}
+
+export async function fetchDataMealId() {
+    try {
+        let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef')
+        let data = await response.json()
+
+        if (!response.ok) {
+            throw new Error("Response status: false")
+        }
+
+        return data
+    } catch (error) {
+        console.error('Ошибка', error)
     }
 }

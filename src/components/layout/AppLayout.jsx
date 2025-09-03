@@ -6,7 +6,7 @@ import AppFooter from './AppFooter';
 const layoutStyle = {
     overflow: 'hidden',
     width: '100%',
-    height: '100vh'
+    minHeight: '100vh'
 };
 
 export default function AppLayout() {
