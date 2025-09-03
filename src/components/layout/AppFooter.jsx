@@ -3,7 +3,8 @@ import { Layout } from 'antd';
 const footerStyle = {
     textAlign: 'center',
     color: '#fff',
-    backgroundColor: '#4096ff',
+    height: 100,
+    backgroundColor: 'rgb(248, 183, 85)',
 };
 
 export default function AppFooter() {

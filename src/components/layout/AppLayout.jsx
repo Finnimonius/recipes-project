@@ -13,9 +13,11 @@ export default function AppLayout() {
 
     return (
         <Layout style={layoutStyle}>
+            <Layout>
                 <AppHeader />
                 <AppContent />
                 <AppFooter />
+            </Layout>
         </Layout>
     )
 }

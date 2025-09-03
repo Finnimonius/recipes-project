@@ -5,10 +5,7 @@ import RecipeCard from '../RecipeCard';
 import './AppLayout.css'
 
 const contentStyle = {
-    textAlign: 'center',
-    minHeight: 120,
-    lineHeight: '120px',
-    color: '#fff',
+    padding: '1rem'
 };
 
 export default function AppContent() {
