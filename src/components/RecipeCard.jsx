@@ -92,7 +92,7 @@ export default function RecipeCard({ recipe, cardWidth }) {
                 placement='right'
                 onClose={() => setOpen(false)}
                 open={open}
-                width='40%'
+                width='35%'
                 styles={{
                     body: { 
                         background: 'rgb(255, 226, 183)',

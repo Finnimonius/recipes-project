@@ -14,6 +14,21 @@ export async function fetchDataRandom() {
     }
 }
 
+export async function fetchDataMealCategories() {
+    try {
+        let response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
+        let data = await response.json()
+
+        if (!response.ok) {
+            throw new Error("Response status: false")
+        }
+
+        return data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 export async function fetchDataMealId() {
     try {
         let response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef')
