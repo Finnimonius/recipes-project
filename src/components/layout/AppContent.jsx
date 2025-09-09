@@ -18,7 +18,8 @@ const spinStyle = {
 
 export default function AppContent({ style }) {
     const [recipes, setRecipe] = useState([]);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [loadingMore, setLoadingMore] = useState(false);
 
     useEffect(() => {
         async function preload() {
@@ -37,6 +38,17 @@ export default function AppContent({ style }) {
         }
         preload()
     }, [])
+
+    const loadingMoreRecipes = async () => {
+        setLoadingMore(true)
+        const newRecipes = []
+        for (let i = 0; i < 9; i++) {
+            const dataRecipes = await fetchDataRandom();
+            newRecipes.push(dataRecipes.meals[0])
+        }
+        setRecipe(prevRecipe => [...prevRecipe, ...newRecipes])
+        setLoadingMore(false)
+    }
 
     if (loading) {
         return (
@@ -68,8 +80,8 @@ export default function AppContent({ style }) {
                             },
                         }}
                     >
-                        <Button>
-                            Load more...
+                        <Button onClick={loadingMoreRecipes} disabled={loadingMore} loading={loadingMore}> 
+                            {loadingMore ? 'Load more...' : 'Loading...'}
                         </Button>
                     </ConfigProvider>
                 </div>
