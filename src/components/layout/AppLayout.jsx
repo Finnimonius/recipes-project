@@ -2,6 +2,7 @@ import { Layout } from 'antd';
 import AppHeader from './AppHeader';
 import AppContent from './AppContent';
 import AppFooter from './AppFooter';
+import AppSider from './AppSider';
 
 const layoutStyle = {
     overflow: 'hidden',
@@ -9,15 +10,17 @@ const layoutStyle = {
     minHeight: '100vh'
 };
 
-export default function AppLayout() {
 
+
+export default function AppLayout() {
     return (
         <Layout style={layoutStyle}>
-            <Layout>
-                <AppHeader />
+            <AppHeader />
+            <Layout style={{ position: 'relative' }}>
+                <AppSider />
                 <AppContent />
-                <AppFooter />
             </Layout>
+            <AppFooter />
         </Layout>
     )
 }
