@@ -10,8 +10,6 @@ const layoutStyle = {
     minHeight: '100vh'
 };
 
-
-
 export default function AppLayout() {
     return (
         <Layout style={layoutStyle}>

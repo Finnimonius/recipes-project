@@ -16,7 +16,7 @@ const spinStyle = {
     alignItems: 'center'
 }
 
-export default function AppContent({ style }) {
+export default function AppContent() {
     const [recipes, setRecipe] = useState([]);
     const [loading, setLoading] = useState(false);
     const [loadingMore, setLoadingMore] = useState(false);
@@ -52,7 +52,7 @@ export default function AppContent({ style }) {
 
     if (loading) {
         return (
-            <Layout.Content style={{ ...contentStyle, ...style }}>
+            <Layout.Content style={contentStyle}>
                 <div style={spinStyle}>
                     <Spin indicator={<LoadingOutlined spin />} size="large" />
                 </div>
@@ -61,7 +61,7 @@ export default function AppContent({ style }) {
     }
 
     return (
-        <Layout.Content style={{ ...contentStyle, ...style }}>
+        <Layout.Content style={contentStyle}>
             <div className='container'>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <Flex gap={30} wrap={true} style={{ marginBottom: 20 }}>
@@ -81,7 +81,7 @@ export default function AppContent({ style }) {
                         }}
                     >
                         <Button onClick={loadingMoreRecipes} disabled={loadingMore} loading={loadingMore}> 
-                            {loadingMore ? 'Load more...' : 'Loading...'}
+                            {loadingMore ? 'Loading...' : 'Load more...'}
                         </Button>
                     </ConfigProvider>
                 </div>
